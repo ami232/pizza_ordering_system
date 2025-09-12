@@ -22,9 +22,9 @@ manager.add_order([american_pizza])
 manager.list_orders()
 
 # Step 1
-margherita_pizza = italian_factory.create_margherita()
-pepperoni_pizza = italian_factory.create_pepperoni()
-veggie_pizza = italian_factory.create_custom("Veggie", ["tomato sauce", "mozzarella", "onion", "mushrooms"])
+margherita_pizza = factory.create_margherita()
+pepperoni_pizza = factory.create_pepperoni()
+veggie_pizza = factory.create_custom("Veggie", ["tomato sauce", "mozzarella", "onion", "mushrooms"])
 
 manager.add_order([margherita_pizza])
 manager.add_order([pepperoni_pizza])
@@ -33,5 +33,5 @@ manager.add_order([veggie_pizza])
 manager.list_orders()
 
 # Step 2
-hawaiian_pizza = italian_factory.create_hawaiian()
+hawaiian_pizza = factory.create_hawaiian()
 hawaiian_pizza.prepare()
