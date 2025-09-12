@@ -1,8 +1,6 @@
 from pizza import PizzaFactory, ItalianPizzaFactory, AmericanPizzaFactory, Pizza
 from order import OrderManager
 
-Pizza('Egg', ['tomato', 'mozzerella', 'egg'])
-
 factory = PizzaFactory()
 manager = OrderManager()
 
@@ -18,6 +16,7 @@ american_factory = AmericanPizzaFactory()
 
 italian_pizza = italian_factory.create_margherita()
 american_pizza = american_factory.create_margherita()
+hawian_pizza = factory.create_haiwan()
 
 manager.add_order([italian_pizza])
 manager.add_order([american_pizza])
