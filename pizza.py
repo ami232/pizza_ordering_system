@@ -6,7 +6,7 @@ class Pizza:
     Represents a pizza with a name, list of ingredients, and preparation status.
     """
 
-    def __init__(self, name, ingredients):
+    def __init__(self, name: str, ingredients):
         """
         Initializes a Pizza instance.
 
