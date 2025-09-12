@@ -14,6 +14,9 @@ class Pizza:
             name (str): The name of the pizza.
             ingredients (list of str): List of ingredients for the pizza.
         """
+
+        
+
         self.name = name
         self.ingredients = ingredients
         self.prepared = False
