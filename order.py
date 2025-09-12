@@ -12,8 +12,6 @@ class Order:
 
 class OrderManager:
     _instance = None
-    orders = []
-    next_order_id: int
 
     def __new__(cls):
         if cls._instance is None:
@@ -23,6 +21,10 @@ class OrderManager:
         return cls._instance
 
     def add_order(self, pizzas):
+        # Handle both single pizza and list of pizzas
+        if not isinstance(pizzas, list):
+            pizzas = [pizzas]
+        
         order_id = self.next_order_id
         order = Order(order_id, pizzas)
         self.orders.append(order)
@@ -36,7 +38,26 @@ class OrderManager:
         print()
 
     def prepare_order(self, order_id):
-        pass
+        for order in self.orders:
+            if order.order_id == order_id:
+                print(f"Preparing Order #{order_id}:")
+                for pizza in order.pizzas:
+                    pizza.prepare()
+                print(f"Order #{order_id} is ready!\n")
+                return
+        print(f"Order #{order_id} not found!")
 
     def dispatch_order(self, order_id):
-        pass
+        for i, order in enumerate(self.orders):
+            if order.order_id == order_id:
+                # Check if all pizzas are prepared
+                all_prepared = all(pizza.prepared for pizza in order.pizzas)
+                if all_prepared:
+                    print(f"Dispatching Order #{order_id} for delivery!")
+                    # Remove the order from the list as it's been dispatched
+                    self.orders.pop(i)
+                    return
+                else:
+                    print(f"Order #{order_id} cannot be dispatched - not all pizzas are prepared!")
+                    return
+        print(f"Order #{order_id} not found!")
