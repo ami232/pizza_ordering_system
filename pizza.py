@@ -1,3 +1,6 @@
+from abc import ABC, abstractmethod
+
+
 class Pizza:
     """
     Represents a pizza with a name, list of ingredients, and preparation status.
@@ -31,28 +34,52 @@ class Pizza:
         return f"{self.name} ({', '.join(self.ingredients)}) - {'Prepared' if self.prepared else 'Not Prepared'}"
 
 
+# Factory
 class PizzaFactory:
     """
     Factory class responsible for creating Pizza objects based on the specified type.
     """
 
-    @staticmethod
-    def create_pizza(pizza_type):
-        """
-        Creates a Pizza object based on the specified type.
+    def create_custom(self, name, ingredients):
+        return Pizza(name, ingredients)
 
-        Parameters:
-            pizza_type (str): The type of pizza to create (e.g., "margherita", "pepperoni").
+    def create_margherita(self):
+        return Pizza("Margherita", ["tomato sauce", "mozzarella", "basil"])
 
-        Returns:
-            Pizza: An instance of the Pizza class corresponding to the specified type.
+    def create_pepperoni(self):
+        return Pizza("Pepperoni", ["tomato sauce", "mozzarella", "pepperoni"])
 
-        Raises:
-            ValueError: If the pizza_type is unknown.
-        """
-        if pizza_type == "margherita":
-            return Pizza("Margherita", ["tomato sauce", "mozzarella", "basil"])
-        elif pizza_type == "pepperoni":
-            return Pizza("Pepperoni", ["tomato sauce", "mozzarella", "pepperoni"])
-        else:
-            raise ValueError(f"Unknown pizza type '{pizza_type}'")
+
+# Abstract Factory
+class PizzaFactoryAbstract(ABC):
+    def create_custom(self, name, ingredients) -> Pizza:
+        return Pizza(name, ingredients)
+
+    @abstractmethod
+    def create_margherita(self) -> Pizza:
+        pass
+
+    @abstractmethod
+    def create_pepperoni(self) -> Pizza:
+        pass
+
+
+# Concrete Factories
+class ItalianPizzaFactory(PizzaFactoryAbstract):
+
+    def create_margherita(self):
+        return Pizza("Italian Margherita", ["tomato sauce", "mozzarella", "basil"])
+
+    def create_pepperoni(self):
+        return Pizza("Italian Pepperoni", ["tomato sauce", "mozzarella", "pepperoni"])
+
+
+class AmericanPizzaFactory(PizzaFactoryAbstract):
+    def create_margherita(self):
+        return Pizza("American Margherita", ["tomato sauce", "mozzarella", "oregano"])
+
+    def create_pepperoni(self):
+        return Pizza(
+            "American Pepperoni",
+            ["tomato sauce", "mozzarella", "pepperoni", "extra cheese"],
+        )
