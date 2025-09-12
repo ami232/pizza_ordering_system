@@ -24,6 +24,10 @@ class OrderManager:
 
     def add_order(self, pizzas):
         order_id = self.next_order_id
+
+        if not isinstance(pizzas, list):
+            pizzas = [pizzas]
+            
         order = Order(order_id, pizzas)
         self.orders.append(order)
         self.next_order_id += 1
