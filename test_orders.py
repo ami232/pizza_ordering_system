@@ -29,6 +29,8 @@ manager.list_orders()
 class SofiaPizzaFactory(PizzaFactoryAbstract):
     def create_margherita(self):
         return Pizza("Sofia Margherita", ["tomato sauce", "mozzarella", "basil", "oregano"])
+    def create_pepperoni(self):
+        return Pizza("Sofia Pepperoni", ["tomato sauce", "mozzarella", "pepperoni", "jalapenos"])
     def create_special(self):
         return Pizza("Sofia Special", ["pesto sauce", "goat cheese", "sun-dried tomatoes"])
 

@@ -1,28 +1,3 @@
-from pizza import PizzaFactory
-from order import OrderManager
-
-
-factory = PizzaFactory()
-manager = OrderManager()
-
-pizza1 = factory.create_margherita()
-pizza2 = factory.create_pepperoni()
-pizza3 = factory.create_custom("Veggie", ["tomato sauce", "mozzarella", "bell peppers", "onions", "olives"])
-pizza4 = factory.create_hawaiian()
-
-manager.add_order([pizza4])
-manager.list_orders()
-
-class SofiaPizzaFactory(PizzaFactoryAbstract):
-    def create_margherita(self):
-        return Pizza("Sofia Margherita", ["tomato sauce", "mozzarella", "basil", "oregano"])
-    # Add more methods as needed
-
-sofia_factory = SofiaPizzaFactory()
-special_pizza = sofia_factory.create_special()
-manager.add_order([special_pizza])
-manager.list_orders()
-
 class Order:
     def __init__(self, order_id, pizzas):
         self.order_id = order_id
@@ -67,5 +42,30 @@ class OrderManager:
                 return
         print(f"Order #{order_id} not found.")
 
-manager.prepare_order(1)
-manager.list_orders()
+class Pizza:
+    def __init__(self, name, ingredients):
+        self.name = name
+        self.ingredients = ingredients
+        self.prepared = False
+
+    def prepare(self):
+        self.prepared = True
+        print(f"Pizza {self.name} is being prepared with ingredients: {', '.join(self.ingredients)}")
+
+class PizzaFactoryAbstract:
+    def create_margherita(self):
+        raise NotImplementedError
+
+    def create_pepperoni(self):
+        raise NotImplementedError
+
+    def create_special(self):
+        raise NotImplementedError
+
+class SofiaPizzaFactory(PizzaFactoryAbstract):
+    def create_margherita(self):
+        return Pizza("Sofia Margherita", ["tomato sauce", "mozzarella", "basil", "oregano"])
+    def create_pepperoni(self):
+        return Pizza("Sofia Pepperoni", ["tomato sauce", "mozzarella", "pepperoni", "jalapenos"])
+    def create_special(self):
+        return Pizza("Sofia Special", ["pesto sauce", "goat cheese", "sun-dried tomatoes"])
