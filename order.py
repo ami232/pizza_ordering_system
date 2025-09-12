@@ -23,8 +23,17 @@ class OrderManager:
         return cls._instance
 
     def add_order(self, pizzas):
+        # Normalize input to a list to support passing a single Pizza
+        
+        if pizzas is None:
+            pizzas_list = []
+        elif isinstance(pizzas, list):
+            pizzas_list = pizzas
+        else:
+            pizzas_list = [pizzas]
+
         order_id = self.next_order_id
-        order = Order(order_id, pizzas)
+        order = Order(order_id, pizzas_list)
         self.orders.append(order)
         self.next_order_id += 1
         return order
@@ -36,7 +45,27 @@ class OrderManager:
         print()
 
     def prepare_order(self, order_id):
-        pass
+        for order in self.orders:
+            if order.order_id == order_id:
+                print(f"Preparing Order #{order_id}:")
+                for pizza in order.pizzas:
+                    pizza.prepare()
+                print(f"Order #{order_id} prepared.\n")
+                return order
+        print(f"Order #{order_id} not found.\n")
+        return None
 
     def dispatch_order(self, order_id):
-        pass
+        for idx, order in enumerate(self.orders):
+            if order.order_id == order_id:
+                if not all(pizza.prepared for pizza in order.pizzas):
+                    print(
+                        f"Order #{order_id} cannot be dispatched: not all pizzas are prepared.\n"
+                    )
+                    return None
+                print(f"Dispatching Order #{order_id}...")
+                self.orders.pop(idx)
+                print(f"Order #{order_id} dispatched.\n")
+                return order
+        print(f"Order #{order_id} not found.\n")
+        return None
