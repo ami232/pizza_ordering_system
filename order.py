@@ -27,7 +27,7 @@ class OrderManager:
 
         if not isinstance(pizzas, list):
             pizzas = [pizzas]
-            
+
         order = Order(order_id, pizzas)
         self.orders.append(order)
         self.next_order_id += 1
@@ -40,7 +40,14 @@ class OrderManager:
         print()
 
     def prepare_order(self, order_id):
-        pass
+        for order in self.orders:
+            if order.order_id == order_id:
+                print(f"Preparing Order #{order_id}:")
+                for pizza in order.pizzas:
+                    pizza.prepare()
+                print()
+                return
+        print(f"Order #{order_id} not found!\n")
 
     def dispatch_order(self, order_id):
         pass
