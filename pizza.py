@@ -29,3 +29,30 @@ class Pizza:
 
     def __str__(self):
         return f"{self.name} ({', '.join(self.ingredients)}) - {'Prepared' if self.prepared else 'Not Prepared'}"
+
+
+class PizzaFactory:
+    """
+    Factory class responsible for creating Pizza objects based on the specified type.
+    """
+
+    @staticmethod
+    def create_pizza(pizza_type):
+        """
+        Creates a Pizza object based on the specified type.
+
+        Parameters:
+            pizza_type (str): The type of pizza to create (e.g., "margherita", "pepperoni").
+
+        Returns:
+            Pizza: An instance of the Pizza class corresponding to the specified type.
+
+        Raises:
+            ValueError: If the pizza_type is unknown.
+        """
+        if pizza_type == "margherita":
+            return Pizza("Margherita", ["tomato sauce", "mozzarella", "basil"])
+        elif pizza_type == "pepperoni":
+            return Pizza("Pepperoni", ["tomato sauce", "mozzarella", "pepperoni"])
+        else:
+            raise ValueError(f"Unknown pizza type '{pizza_type}'")
