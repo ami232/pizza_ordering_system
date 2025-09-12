@@ -49,6 +49,12 @@ class PizzaFactory:
     def create_pepperoni(self):
         return Pizza("Pepperoni", ["tomato sauce", "mozzarella", "pepperoni"])
 
+    def create_veggie(self):
+        return Pizza("Veggie", ["tomato sauce", "mozzarella", "bell peppers", "mushrooms", "onions"])
+
+    def create_hawaiian(self):
+        return Pizza("Hawaiian", ["tomato sauce", "mozzarella", "ham", "pineapple"])
+
 
 # Abstract Factory
 class PizzaFactoryAbstract(ABC):
@@ -83,3 +89,19 @@ class AmericanPizzaFactory(PizzaFactoryAbstract):
             "American Pepperoni",
             ["tomato sauce", "mozzarella", "pepperoni", "extra cheese"],
         )
+
+
+class CascadePizzaFactory(PizzaFactoryAbstract):
+    """
+    Cascade's custom pizza factory with unique Mediterranean-inspired pizzas
+    """
+    
+    def create_margherita(self):
+        return Pizza("Mediterranean Margherita", ["tomato sauce", "fresh mozzarella", "basil", "olive oil", "sea salt"])
+
+    def create_pepperoni(self):
+        return Pizza("Spicy Mediterranean Pepperoni", ["tomato sauce", "mozzarella", "spicy pepperoni", "red pepper flakes", "oregano"])
+    
+    def create_greek_delight(self):
+        """Custom pizza type: Greek-inspired pizza"""
+        return Pizza("Greek Delight", ["olive oil", "feta cheese", "kalamata olives", "sun-dried tomatoes", "red onions", "oregano"])
