@@ -10,12 +10,15 @@ veggie = factory.create_custom(
     ["tomato sauce", "mozzarella", "bell peppers", "olives", "onions"]
 )
 
+hawaiian = factory.create_hawaiian()
+
 manager = OrderManager()
 order = manager.add_order([margherita, pepperoni, veggie])
 
 print(margherita)
 print(pepperoni)
 print(veggie)
+print(hawaiian)
 
 print(f"Created Order #{order.order_id}")
 manager.list_orders()
