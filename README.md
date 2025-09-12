@@ -52,7 +52,7 @@ git checkout -b yourname_branch
 3. **Run Python code** to test orders:
 
 ```python
-from pizza import PizzaFactory
+from pizza import PizzaFactory, ItalianPizzaFactory, AmericanPizzaFactory
 from order import OrderManager
 
 factory = PizzaFactory()
@@ -60,7 +60,7 @@ manager = OrderManager()
 
 # Factory Method
 pizza = factory.create_margherita()
-manager.add_order(pizza)
+manager.add_order([pizza])
 manager.list_orders()
 manager.prepare_order(1)
 
@@ -71,8 +71,8 @@ american_factory = AmericanPizzaFactory()
 italian_pizza = italian_factory.create_margherita()
 american_pizza = american_factory.create_margherita()
 
-manager.add_order(italian_pizza)
-manager.add_order(american_pizza)
+manager.add_order([italian_pizza])
+manager.add_order([american_pizza])
 manager.list_orders()
 ```
 
