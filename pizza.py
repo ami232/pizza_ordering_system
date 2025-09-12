@@ -42,6 +42,9 @@ class PizzaFactory:
 
     def create_custom(self, name, ingredients):
         return Pizza(name, ingredients)
+    
+    def create_haiwan(self):
+        return Pizza("Haiwan", ["tomato sauce", "mozzarella", "ham", "pineapple"])
 
     def create_margherita(self):
         return Pizza("Margherita", ["tomato sauce", "mozzarella", "basil"])
