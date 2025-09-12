@@ -1,5 +1,7 @@
-from pizza import PizzaFactory, ItalianPizzaFactory, AmericanPizzaFactory
+from pizza import PizzaFactory, ItalianPizzaFactory, AmericanPizzaFactory, Pizza
 from order import OrderManager
+
+Pizza('Egg', ['tomato', 'mozzerella', 'egg'])
 
 factory = PizzaFactory()
 manager = OrderManager()
