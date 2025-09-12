@@ -23,6 +23,9 @@ class OrderManager:
         return cls._instance
 
     def add_order(self, pizzas):
+        # accept either a single Pizza or a list/tuple of pizzas
+        if not isinstance(pizzas, (list, tuple)):
+            pizzas = [pizzas]
         order_id = self.next_order_id
         order = Order(order_id, pizzas)
         self.orders.append(order)
