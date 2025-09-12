@@ -8,7 +8,7 @@ class Pizza:
 
     def __init__(self, name, ingredients):
         """
-        Initializes a Pizza instance.
+        Initializes a Pizza instance..
 
         Parameters:
             name (str): The name of the pizza.
