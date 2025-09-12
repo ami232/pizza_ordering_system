@@ -20,3 +20,18 @@ american_pizza = american_factory.create_margherita()
 manager.add_order([italian_pizza])
 manager.add_order([american_pizza])
 manager.list_orders()
+
+new_margherita = italian_factory.create_margherita()
+new_pepperoni = american_factory.create_pepperoni()
+new_veggie = factory.create_custom("Veggie", ["tomato sauce", "mozzarella", "bell peppers", "onions", "mushrooms"])
+
+manager.add_order([new_margherita, new_pepperoni, new_veggie])
+
+hawaiian_pizza = factory.create_hawaiian()
+manager.add_order([hawaiian_pizza])
+
+manager.list_orders()
+
+manager.prepare_order(5)
+
+manager.list_orders()

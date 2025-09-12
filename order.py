@@ -36,7 +36,9 @@ class OrderManager:
         print()
 
     def prepare_order(self, order_id):
-        pass
+        order = self.orders[order_id - 1]
+        for pizza in order.pizzas:
+            pizza.prepare()
 
     def dispatch_order(self, order_id):
         pass
