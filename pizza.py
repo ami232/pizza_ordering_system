@@ -36,10 +36,6 @@ class Pizza:
 
 # Factory
 class PizzaFactory:
-    """
-    Factory class responsible for creating Pizza objects based on the specified type.
-    """
-
     def create_custom(self, name, ingredients):
         return Pizza(name, ingredients)
 
@@ -49,6 +45,8 @@ class PizzaFactory:
     def create_pepperoni(self):
         return Pizza("Pepperoni", ["tomato sauce", "mozzarella", "pepperoni"])
 
+    def create_hawaiian(self):
+        return Pizza("Hawaiian", ["tomato sauce", "mozzarella", "ham", "pineapple"])
 
 # Abstract Factory
 class PizzaFactoryAbstract(ABC):
