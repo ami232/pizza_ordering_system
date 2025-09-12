@@ -6,7 +6,7 @@ class Pizza:
     Represents a pizza with a name, list of ingredients, and preparation status.
     """
 
-    def __init__(self, name, ingredients):
+    def __init__(self, name: str, ingredients: list):
         """
         Initializes a Pizza instance.
 
@@ -48,6 +48,9 @@ class PizzaFactory:
 
     def create_pepperoni(self):
         return Pizza("Pepperoni", ["tomato sauce", "mozzarella", "pepperoni"])
+    
+    def create_hawaiian(self):
+        return Pizza("Hawaiian", ["tomato sauce", "mozzarella", "ham", "pineapple"])
 
 
 # Abstract Factory
