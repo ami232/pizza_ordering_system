@@ -1,12 +1,12 @@
 from abc import ABC, abstractmethod
 
-
+# to define the pizza object
 class Pizza:
     """
     Represents a pizza with a name, list of ingredients, and preparation status.
     """
 
-    def __init__(self, name, ingredients):
+    def __init__(self, name: str, ingredients: list[str]):
         """
         Initializes a Pizza instance.
 
@@ -40,7 +40,7 @@ class PizzaFactory:
     Factory class responsible for creating Pizza objects based on the specified type.
     """
 
-    def create_custom(self, name, ingredients):
+    def create_custom(self, name: str, ingredients: list[str]):
         return Pizza(name, ingredients)
 
     def create_margherita(self):
@@ -48,6 +48,9 @@ class PizzaFactory:
 
     def create_pepperoni(self):
         return Pizza("Pepperoni", ["tomato sauce", "mozzarella", "pepperoni"])
+    
+    def create_hawaiian(self):
+        return Pizza("Hawaiian", ["tomato sauce", "mozzarella", "ham", "pineapple"])
 
 
 # Abstract Factory
