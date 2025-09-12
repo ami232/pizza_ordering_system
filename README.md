@@ -60,7 +60,7 @@ manager = OrderManager()
 
 # Factory Method
 pizza = factory.create_margherita()
-manager.add_order(pizza)
+manager.add_order([pizza])
 manager.list_orders()
 manager.prepare_order(1)
 
