@@ -48,6 +48,12 @@ class PizzaFactory:
 
     def create_pepperoni(self):
         return Pizza("Pepperoni", ["tomato sauce", "mozzarella", "pepperoni"])
+    
+    def create_veggie(self):
+        return Pizza("Veggie", ["tomato sauce", "mozzarella", "bell peppers", "mushrooms", "onions"])
+    
+    def create_hawaiian(self):
+        return Pizza("Hawaiian", ["tomato sauce", "mozzarella", "ham", "pineapple"])
 
 
 # Abstract Factory
@@ -83,3 +89,17 @@ class AmericanPizzaFactory(PizzaFactoryAbstract):
             "American Pepperoni",
             ["tomato sauce", "mozzarella", "pepperoni", "extra cheese"],
         )
+
+
+class GeorgePizzaFactory(PizzaFactoryAbstract):
+    """George's custom pizza factory with unique recipes"""
+    
+    def create_margherita(self):
+        return Pizza("George's Margherita", ["tomato sauce", "fresh mozzarella", "basil", "olive oil", "garlic"])
+
+    def create_pepperoni(self):
+        return Pizza("George's Pepperoni", ["tomato sauce", "mozzarella", "spicy pepperoni", "red pepper flakes"])
+    
+    def create_bbq_chicken(self):
+        """George's signature pizza"""
+        return Pizza("George's BBQ Chicken", ["bbq sauce", "mozzarella", "grilled chicken", "red onions", "cilantro"])
