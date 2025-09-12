@@ -3,7 +3,8 @@ from abc import ABC, abstractmethod
 
 class Pizza:
     """
-    Represents a pizza with a name, list of ingredients, and preparation status.
+    Represents a pizza with a name, a list of ingredients, 
+    and a preparation status.
     """
 
     def __init__(self, name, ingredients):
@@ -20,6 +21,7 @@ class Pizza:
 
     def prepare(self):
         """
+        Prepare is the method.
         Prepares the pizza if it has not been prepared yet.
         """
         if not self.prepared:
@@ -37,7 +39,8 @@ class Pizza:
 # Factory
 class PizzaFactory:
     """
-    Factory class responsible for creating Pizza objects based on the specified type.
+    Factory class responsible for creating Pizza objects 
+    based on the specified type.
     """
 
     def create_custom(self, name, ingredients):
@@ -62,7 +65,6 @@ class PizzaFactoryAbstract(ABC):
     @abstractmethod
     def create_pepperoni(self) -> Pizza:
         pass
-
 
 # Concrete Factories
 class ItalianPizzaFactory(PizzaFactoryAbstract):
