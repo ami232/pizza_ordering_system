@@ -16,7 +16,8 @@ class OrderManager:
     next_order_id: int
 
     def __new__(cls):
-        if cls._instance is None:
+        # If there is no instance yet
+        if cls._instance is None: 
             cls._instance = super(OrderManager, cls).__new__(cls)
             cls._instance.orders = []
             cls._instance.next_order_id = 1
@@ -40,4 +41,4 @@ class OrderManager:
 
     def dispatch_order(self, order_id):
         pass
-    
+
