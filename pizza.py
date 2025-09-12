@@ -81,3 +81,22 @@ class AmericanPizzaFactory(PizzaFactoryAbstract):
             "American Pepperoni",
             ["tomato sauce", "mozzarella", "pepperoni", "extra cheese"],
         )
+
+class AdrianPizzaFactory(PizzaFactoryAbstract):
+    def create_margherita(self):
+        return Pizza(
+            "Adrian Margherita",
+            ["tomato sauce", "buffalo mozzarella", "fresh basil", "olive oil"],
+        )
+
+    def create_pepperoni(self):
+        return Pizza(
+            "Adrian Pepperoni",
+            ["tomato sauce", "mozzarella", "spicy pepperoni", "jalapeños"],
+        )
+
+    def create_special(self):
+        return Pizza(
+            "Adrian Special",
+            ["tomato sauce", "mozzarella", "prosciutto", "truffle oil", "arugula"],
+        )
