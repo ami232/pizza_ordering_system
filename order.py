@@ -40,7 +40,17 @@ class OrderManager:
         print()
 
     def prepare_order(self, order_id):
-        pass
+        for order in self.orders:
+            if order.order_id == order_id:
+                print(f"Order #{order_id} is being prepared.")
+                return True
+        print(f"Order #{order_id} not found.")
+        return False
 
     def dispatch_order(self, order_id):
-        pass
+        for order in self.orders:
+            if order.order_id == order_id:
+                print(f"Order #{order_id} has been dispatched.")
+                return True
+        print(f"Order #{order_id} not found.")
+        return False
