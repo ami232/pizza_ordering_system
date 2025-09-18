@@ -5,6 +5,15 @@ class Order:
     def __init__(self, order_id, pizzas):
         self.order_id = order_id
         self.pizzas = pizzas
+<<<<<<< HEAD
+        self.status = "NEW"
+
+    def __str__(self):
+        order_str = f"Order #{self.order_id} [{self.status}]:\n"
+        for pizza in self.pizzas:
+            order_str += "- " + str(pizza) + "\n"
+        return order_str
+=======
         self.status = "Pending"
         self.delivery_status = "Not Dispatched"
 
@@ -17,6 +26,7 @@ class Order:
 
     def set_delivery_status(self, delivery_status):
         self.delivery_status = delivery_status
+>>>>>>> main
 
 
 class OrderManager:
@@ -48,6 +58,42 @@ class OrderManager:
         print()
 
     def prepare_order(self, order_id):
+<<<<<<< HEAD
+        """
+        Prepare all pizzas in the given order.
+        Returns True if order found and prepared (even if already prepared), False if not found.
+        """
+        order = self._find_order(order_id)
+        if order is None:
+            print(f"Order #{order_id} not found.")
+            return False
+
+        print(f"Preparing Order #{order_id} ...")
+        for p in order.pizzas:
+            p.prepare()
+        order.status = "PREPARED"
+        print(f"Order #{order_id} is prepared.\n")
+        return True
+
+    def dispatch_order(self, order_id):
+        """
+        (Bonus) Dispatch order only if all pizzas are prepared; remove it from the queue.
+        """
+        order = self._find_order(order_id)
+        if order is None:
+            print(f"Order #{order_id} not found.")
+            return False
+
+        all_prepared = all(p.prepared for p in order.pizzas)
+        if not all_prepared:
+            print(f"Order #{order_id} cannot be dispatched: not all pizzas are prepared.")
+            return False
+
+        self.orders = [o for o in self.orders if o.order_id != order_id]
+        order.status = "DISPATCHED"
+        print(f"Order #{order_id} dispatched! 🍕🚚\n")
+        return True
+=======
         for order in self.orders:
             if order.order_id == order_id:
                 order.set_status("Preparing")
@@ -73,3 +119,4 @@ class OrderManager:
                 print(f"Order #{order_id} has been delivered.")
                 return
         print(f"Order #{order_id} not found.")
+>>>>>>> main

@@ -34,12 +34,21 @@ class PizzaFactory:
 
     def create_pepperoni(self) -> Pizza:
         return Pizza("Pepperoni", ["tomato sauce", "mozzarella", "pepperoni"])
+<<<<<<< HEAD
+    
+    def create_veggie(self):
+        return Pizza("Veggie", ["tomato sauce", "nuts", "spinach"])
+    
+    def create_hawaiian(self):
+        return Pizza("Hawaiian", ["tomato sauce", "pinneaple", "cherrys"])
+=======
 
     def create_veggie(self) -> Pizza:
         return Pizza("Veggie", ["tomato sauce", "mozzarella", "peppers", "onions", "olives"])
 
     def create_hawaiian(self) -> Pizza:
         return Pizza("Hawaiian", ["tomato sauce", "mozzarella", "ham", "pineapple"])
+>>>>>>> main
 
 
 # ------------------ Abstract Factory ------------------
@@ -83,6 +92,28 @@ class AmericanPizzaFactory(PizzaFactoryAbstract):
     def create_margherita(self) -> Pizza:
         return Pizza("American Margherita", ["tomato sauce", "mozzarella", "oregano"])
 
+<<<<<<< HEAD
+    def create_pepperoni(self):
+        return Pizza(
+            "American Pepperoni",
+            ["tomato sauce", "mozzarella", "pepperoni", "extra cheese"],
+        )
+
+# pizza.py (add near the other factories)
+class BeaPizzaFactory(PizzaFactoryAbstract):
+    """
+    A custom factory with its own style (e.g., premium ingredients).
+    """
+    def create_margherita(self) -> Pizza:
+        return Pizza("Bea Margherita", ["tomato sauce", "fiordilatte mozzarella", "basil", "olive oil"])
+
+    def create_pepperoni(self) -> Pizza:
+        return Pizza("Bea Pepperoni", ["tomato sauce", "mozzarella", "spicy pepperoni", "oregano"])
+
+    # Your extra pizza (factory-specific)
+    def create_truffle_queen(self) -> Pizza:
+        return Pizza("Truffle Queen", ["white sauce", "mozzarella", "mushrooms", "black truffle oil", "parmesan"])
+=======
     def create_pepperoni(self) -> Pizza:
         return Pizza("American Pepperoni", ["tomato sauce", "mozzarella", "pepperoni", "extra cheese"])
 
@@ -108,3 +139,4 @@ class ManuelPizzaFactory(PizzaFactoryAbstract):
 
     def create_bbq(self) -> Pizza:
         return Pizza("Manuel BBQ", ["bbq sauce", "mozzarella", "chicken", "onions"])
+>>>>>>> main

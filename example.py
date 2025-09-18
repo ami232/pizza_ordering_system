@@ -22,7 +22,13 @@ manager.add_order([italian_pizza])
 manager.add_order([american_pizza])
 manager.list_orders()
 
+<<<<<<< HEAD
+manager.list_orders()        # shows [NEW]
+manager.prepare_order(1)     # becomes [PREPARED]
+manager.dispatch_order(1)    # becomes [DISPATCHED]
+=======
 
 awaiian_pizza = factory.create_hawaiian()
 order = manager.add_order(hawaiian_pizza)   # capture returned Order
+>>>>>>> main
 manager.list_orders()
