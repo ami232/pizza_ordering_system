@@ -84,3 +84,18 @@ class AmericanPizzaFactory(PizzaFactoryAbstract):
             "American Pepperoni",
             ["tomato sauce", "mozzarella", "pepperoni", "extra cheese"],
         )
+
+# pizza.py (add near the other factories)
+class BeaPizzaFactory(PizzaFactoryAbstract):
+    """
+    A custom factory with its own style (e.g., premium ingredients).
+    """
+    def create_margherita(self) -> Pizza:
+        return Pizza("Bea Margherita", ["tomato sauce", "fiordilatte mozzarella", "basil", "olive oil"])
+
+    def create_pepperoni(self) -> Pizza:
+        return Pizza("Bea Pepperoni", ["tomato sauce", "mozzarella", "spicy pepperoni", "oregano"])
+
+    # Your extra pizza (factory-specific)
+    def create_truffle_queen(self) -> Pizza:
+        return Pizza("Truffle Queen", ["white sauce", "mozzarella", "mushrooms", "black truffle oil", "parmesan"])

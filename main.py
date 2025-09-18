@@ -20,3 +20,14 @@ american_pizza = american_factory.create_margherita()
 manager.add_order([italian_pizza])
 manager.add_order([american_pizza])
 manager.list_orders()
+
+from pizza import BeaPizzaFactory
+
+bea_factory = BeaPizzaFactory()
+bea_marg = bea_factory.create_margherita()
+bea_truffle = bea_factory.create_truffle_queen()
+
+manager.add_order([bea_marg, bea_truffle])
+manager.list_orders()
+manager.prepare_order(3)     # adjust ID if needed
+manager.dispatch_order(3)    # optional bonus
