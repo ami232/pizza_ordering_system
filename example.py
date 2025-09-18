@@ -21,3 +21,8 @@ american_pizza = american_factory.create_margherita()
 manager.add_order([italian_pizza])
 manager.add_order([american_pizza])
 manager.list_orders()
+
+manager.list_orders()        # shows [NEW]
+manager.prepare_order(1)     # becomes [PREPARED]
+manager.dispatch_order(1)    # becomes [DISPATCHED]
+manager.list_orders()

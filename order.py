@@ -6,9 +6,10 @@ class Order:
     def __init__(self, order_id, pizzas):
         self.order_id = order_id
         self.pizzas = pizzas
+        self.status = "NEW"
 
     def __str__(self):
-        order_str = "Order #" + str(self.order_id) + ":\n"
+        order_str = f"Order #{self.order_id} [{self.status}]:\n"
         for pizza in self.pizzas:
             order_str += "- " + str(pizza) + "\n"
         return order_str
@@ -52,6 +53,7 @@ class OrderManager:
         print(f"Preparing Order #{order_id} ...")
         for p in order.pizzas:
             p.prepare()
+        order.status = "PREPARED"
         print(f"Order #{order_id} is prepared.\n")
         return True
 
@@ -70,5 +72,6 @@ class OrderManager:
             return False
 
         self.orders = [o for o in self.orders if o.order_id != order_id]
+        order.status = "DISPATCHED"
         print(f"Order #{order_id} dispatched! 🍕🚚\n")
         return True
