@@ -1,23 +1,31 @@
-from pizza import PizzaFactory, ItalianPizzaFactory, AmericanPizzaFactory, Pizza
+from pizza import PizzaFactory, ItalianPizzaFactory, AmericanPizzaFactory
 from order import OrderManager
 
-factory = PizzaFactory()
-manager = OrderManager()
+def main():
+    factory = PizzaFactory()
+    manager = OrderManager()
 
-# Factory Method
-pizza = factory.create_margherita()
-manager.add_order([pizza])
-manager.list_orders()
-manager.prepare_order(1)
+    # Step 1 - Create and order different pizzas
+    print("Creating different pizzas:")
+    margherita = factory.create_margherita()
+    pepperoni = factory.create_pepperoni()
+    veggie = factory.create_veggie()
+    hawaiian = factory.create_hawaiian()
 
-# Abstract Factory
-italian_factory = ItalianPizzaFactory()
-american_factory = AmericanPizzaFactory()
+    # Add to order manager
+    manager.add_order([margherita, pepperoni])
+    manager.add_order([veggie, hawaiian])
+    
+    print("\nInitial orders:")
+    manager.list_orders()
 
-italian_pizza = italian_factory.create_margherita()
-american_pizza = american_factory.create_margherita()
-hawian_pizza = factory.create_haiwan()
+    # Prepare orders
+    print("\nPreparing orders:")
+    manager.prepare_order(1)
+    manager.prepare_order(2)
+    
+    print("\nFinal order status:")
+    manager.list_orders()
 
-manager.add_order([italian_pizza])
-manager.add_order([american_pizza])
-manager.list_orders()
+if __name__ == "__main__":
+    main()

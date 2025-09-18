@@ -43,14 +43,17 @@ class PizzaFactory:
     def create_custom(self, name, ingredients):
         return Pizza(name, ingredients)
     
-    def create_haiwan(self):
-        return Pizza("Haiwan", ["tomato sauce", "mozzarella", "pineapple", "ham"])
+    def create_hawaiian(self):  # Fixed spelling from "haiwan"
+        return Pizza("Hawaiian", ["tomato sauce", "mozzarella", "pineapple", "ham"])
 
     def create_margherita(self):
         return Pizza("Margherita", ["tomato sauce", "mozzarella", "basil"])
 
     def create_pepperoni(self):
         return Pizza("Pepperoni", ["tomato sauce", "mozzarella", "pepperoni"])
+
+    def create_veggie(self):
+        return Pizza("Veggie", ["tomato sauce", "mozzarella", "mushrooms", "peppers", "onions"])
 
 
 # Abstract Factory
