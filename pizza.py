@@ -91,3 +91,19 @@ class AmericanPizzaFactory(PizzaFactoryAbstract):
 
     def create_hawaiian(self):
         return Pizza("American Hawaiian", ["tomato sauce", "mozzarella", "ham", "pineapple", "extra cheese"])
+
+class ManuelPizzaFactory(PizzaFactoryAbstract):
+    def create_margherita(self):
+        return Pizza("Manuel Margherita", ["tomato sauce", "mozzarella", "spinach"])
+
+    def create_pepperoni(self):
+        return Pizza("Manuel Pepperoni", ["tomato sauce", "mozzarella", "pepperoni", "jalapeños"])
+
+    def create_veggie(self):
+        return Pizza("Manuel Veggie", ["tomato sauce", "mozzarella", "peppers", "onions", "corn"])
+
+    def create_hawaiian(self):
+        return Pizza("Manuel Hawaiian", ["tomato sauce", "mozzarella", "ham", "pineapple", "bacon"])
+
+    def create_bbq(self):
+        return Pizza("Manuel BBQ", ["bbq sauce", "mozzarella", "chicken", "onions"])
