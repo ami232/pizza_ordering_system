@@ -81,6 +81,7 @@ manager.list_orders()
 ## Tasks / Exercises
 
 ### Deliverables
+
 Upload a screenshots of your git graph and PRs to blackboard at the end of the class.
 
 ### Step 0 - If you make changes to the codebase, commit your work before the next step
@@ -115,10 +116,12 @@ git push origin yourname_branch
 * Test adding and preparing your new pizza.
 
 ### Step 3 - Pull changes from main into your branch
+
 ```bash
 git checkout yourname_branch
 git merge origin/main
 ```
+
 And fix conflicts
 
 ### Step 3 - Prepare Orders
@@ -127,6 +130,7 @@ And fix conflicts
 * Confirm the `prepared` state is updated correctly.
 
 ### Step 4 - Abstract Factory
+
 * Create a new branch `yourname_pizza_factory`
 * Implement a new concrete factory `{YourName}PizzaFactory` using `PizzaFactoryAbstract`
 * Add a new type of pizza you want your factory to have
@@ -141,4 +145,3 @@ And fix conflicts
 * Follow similar steps to those in Step 4.
 
 ---
-
