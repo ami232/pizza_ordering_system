@@ -44,3 +44,18 @@ american_pizza = american_factory.create_margherita()
 manager.add_order([italian_pizza])
 manager.add_order([american_pizza])
 manager.list_orders()
+
+
+hawaiian_only_order = manager.add_order([hawaiian])
+print(f"Created Order #{hawaiian_only_order.order_id} (Hawaiian only)")
+
+print("\nBefore preparing Hawaiian:")
+manager.list_orders()
+
+manager.prepare_order(hawaiian_only_order.order_id)
+
+print("After preparing Hawaiian:")
+manager.list_orders()
+
+for p in hawaiian_only_order.pizzas:
+    print(f"{p.name} prepared? {p.prepared}")

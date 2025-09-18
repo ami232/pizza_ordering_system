@@ -3,9 +3,9 @@ from pizza import Pizza
 
 
 class Order:
-    def __init__(self, order_id, pizzas):
+    def __init__(self, order_id: int, pizzas: Iterable[Pizza]):
         self.order_id = order_id
-        self.pizzas = pizzas
+        self.pizzas = list(pizzas)
 
     def __str__(self):
         order_str = "Order #" + str(self.order_id) + ":\n"
@@ -16,7 +16,7 @@ class Order:
 
 class OrderManager:
     _instance = None
-    orders = []
+    orders: list[Order]
     next_order_id: int
 
     def __new__(cls):
@@ -26,7 +26,13 @@ class OrderManager:
             cls._instance.next_order_id = 1
         return cls._instance
 
-    def add_order(self, pizzas: Iterable[Pizza]):
+    def _get_order(self, order_id: int) -> Order | None:
+        for o in self.orders:
+            if o.order_id == order_id:
+                return o
+        return None
+
+    def add_order(self, pizzas: Iterable[Pizza]) -> Order:
         order_id = self.next_order_id
         order = Order(order_id, pizzas)
         self.orders.append(order)
@@ -39,8 +45,22 @@ class OrderManager:
             print(order)
         print()
 
-    def prepare_order(self, order_id):
-        pass
 
-    def dispatch_order(self, order_id):
-        pass
+    def prepare_order(self, order_id: int):
+        order = self._get_order(order_id)
+        if not order:
+            print(f"Order #{order_id} not found.")
+            return
+        print(f"Preparing Order #{order_id}...")
+        for pizza in order.pizzas:
+            pizza.prepare()
+        print(f"Order #{order_id} prepared.\n")
+
+
+    def dispatch_order(self, order_id: int):
+        order = self._get_order(order_id)
+        if not order:
+            print(f"Order #{order_id} not found.")
+            return
+        print(f"Dispatching Order #{order_id}... Done!\n")
+
