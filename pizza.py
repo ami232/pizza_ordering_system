@@ -8,7 +8,6 @@ class Pizza:
     """
 
     def __init__(self, name: str, ingredients: List[str]):
-     
         self.name = name
         self.ingredients = ingredients
         self.prepared = False
@@ -43,6 +42,9 @@ class PizzaFactory:
 
     def create_pepperoni(self):
         return Pizza("Pepperoni", ["tomato sauce", "mozzarella", "pepperoni"])
+
+    def create_hawaiian(self):
+        return Pizza("Hawaiian", ["tomato sauce", "mozzarella", "ham", "pineapple"])
 
 
 # Abstract Factory
