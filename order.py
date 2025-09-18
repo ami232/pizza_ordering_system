@@ -1,15 +1,21 @@
+from pizza import Pizza
+
 class Order:
     def __init__(self, order_id, pizzas):
         self.order_id = order_id
         self.pizzas = pizzas
         self.status = "Pending"
+        self.delivery_status = "Not Dispatched"
 
     def __str__(self):
         pizza_names = ', '.join([pizza.name for pizza in self.pizzas])
-        return f"Order #{self.order_id}: {pizza_names} | Status: {self.status}"
+        return f"Order #{self.order_id}: {pizza_names} | Status: {self.status} | Delivery: {self.delivery_status}"
 
     def set_status(self, status):
         self.status = status
+
+    def set_delivery_status(self, delivery_status):
+        self.delivery_status = delivery_status
 
 class OrderManager:
     def __new__(cls):
@@ -32,6 +38,22 @@ class OrderManager:
             print(order)
         print()
 
+    def dispatch_order(self, order_id):
+        for order in self.orders:
+            if order.order_id == order_id:
+                order.set_delivery_status("Out for Delivery")
+                print(f"Order #{order_id} is out for delivery.")
+                return
+        print(f"Order #{order_id} not found.")
+
+    def deliver_order(self, order_id):
+        for order in self.orders:
+            if order.order_id == order_id:
+                order.set_delivery_status("Delivered")
+                print(f"Order #{order_id} has been delivered.")
+                return
+        print(f"Order #{order_id} not found.")
+
     def prepare_order(self, order_id):
         for order in self.orders:
             if order.order_id == order_id:
@@ -42,31 +64,3 @@ class OrderManager:
                 print(f"Order #{order_id} prepared and completed.")
                 return
         print(f"Order #{order_id} not found.")
-
-class Pizza:
-    def __init__(self, name, ingredients):
-        self.name = name
-        self.ingredients = ingredients
-        self.prepared = False
-
-    def prepare(self):
-        self.prepared = True
-        print(f"Pizza {self.name} is being prepared with ingredients: {', '.join(self.ingredients)}")
-
-class PizzaFactoryAbstract:
-    def create_margherita(self):
-        raise NotImplementedError
-
-    def create_pepperoni(self):
-        raise NotImplementedError
-
-    def create_special(self):
-        raise NotImplementedError
-
-class SofiaPizzaFactory(PizzaFactoryAbstract):
-    def create_margherita(self):
-        return Pizza("Sofia Margherita", ["tomato sauce", "mozzarella", "basil", "oregano"])
-    def create_pepperoni(self):
-        return Pizza("Sofia Pepperoni", ["tomato sauce", "mozzarella", "pepperoni", "jalapenos"])
-    def create_special(self):
-        return Pizza("Sofia Special", ["pesto sauce", "goat cheese", "sun-dried tomatoes"])
