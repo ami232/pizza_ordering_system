@@ -52,8 +52,8 @@ git checkout -b yourname_branch
 3. **Run Python code** to test orders:
 
 ```python
-from pizza_factory import PizzaFactory
-from order_manager import OrderManager
+from pizza import PizzaFactory
+from order import OrderManager
 
 factory = PizzaFactory()
 manager = OrderManager()
