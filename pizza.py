@@ -1,27 +1,16 @@
 from abc import ABC, abstractmethod
 
-
 class Pizza:
     """
     Represents a pizza with a name, list of ingredients, and preparation status.
     """
 
     def __init__(self, name, ingredients):
-        """
-        Initializes a Pizza instance.
-
-        Parameters:
-            name (str): The name of the pizza.
-            ingredients (list of str): List of ingredients for the pizza.
-        """
         self.name = name
         self.ingredients = ingredients
         self.prepared = False
 
     def prepare(self):
-        """
-        Prepares the pizza if it has not been prepared yet.
-        """
         if not self.prepared:
             print(f"Preparing {self.name} pizza...")
             print("Ingredients:", ", ".join(self.ingredients))
@@ -34,12 +23,8 @@ class Pizza:
         return f"{self.name} ({', '.join(self.ingredients)}) - {'Prepared' if self.prepared else 'Not Prepared'}"
 
 
-# Factory
+# ------------------ Factory ------------------
 class PizzaFactory:
-    """
-    Factory class responsible for creating Pizza objects based on the specified type.
-    """
-
     def create_custom(self, name, ingredients):
         return Pizza(name, ingredients)
 
@@ -49,8 +34,15 @@ class PizzaFactory:
     def create_pepperoni(self):
         return Pizza("Pepperoni", ["tomato sauce", "mozzarella", "pepperoni"])
 
+    def create_veggie(self):
+        return Pizza("Veggie", ["tomato sauce", "mozzarella", "peppers", "onions", "olives"])
 
-# Abstract Factory
+    def create_hawaiian(self):
+        return Pizza("Hawaiian", ["tomato sauce", "mozzarella", "ham", "pineapple"])
+
+
+
+# ------------------ Abstract Factory ------------------
 class PizzaFactoryAbstract(ABC):
     def create_custom(self, name, ingredients) -> Pizza:
         return Pizza(name, ingredients)
@@ -63,15 +55,28 @@ class PizzaFactoryAbstract(ABC):
     def create_pepperoni(self) -> Pizza:
         pass
 
+    @abstractmethod
+    def create_veggie(self) -> Pizza:
+        pass
 
-# Concrete Factories
+    @abstractmethod
+    def create_hawaiian(self) -> Pizza:
+        pass
+
+
+# ------------------ Concrete Factories ------------------
 class ItalianPizzaFactory(PizzaFactoryAbstract):
-
     def create_margherita(self):
         return Pizza("Italian Margherita", ["tomato sauce", "mozzarella", "basil"])
 
     def create_pepperoni(self):
         return Pizza("Italian Pepperoni", ["tomato sauce", "mozzarella", "pepperoni"])
+
+    def create_veggie(self):
+        return Pizza("Italian Veggie", ["tomato sauce", "mozzarella", "zucchini", "peppers", "onions"])
+
+    def create_hawaiian(self):
+        return Pizza("Italian Hawaiian", ["tomato sauce", "mozzarella", "ham", "pineapple"])
 
 
 class AmericanPizzaFactory(PizzaFactoryAbstract):
@@ -79,7 +84,10 @@ class AmericanPizzaFactory(PizzaFactoryAbstract):
         return Pizza("American Margherita", ["tomato sauce", "mozzarella", "oregano"])
 
     def create_pepperoni(self):
-        return Pizza(
-            "American Pepperoni",
-            ["tomato sauce", "mozzarella", "pepperoni", "extra cheese"],
-        )
+        return Pizza("American Pepperoni", ["tomato sauce", "mozzarella", "pepperoni", "extra cheese"])
+
+    def create_veggie(self):
+        return Pizza("American Veggie", ["tomato sauce", "mozzarella", "mushrooms", "peppers", "onions", "olives"])
+
+    def create_hawaiian(self):
+        return Pizza("American Hawaiian", ["tomato sauce", "mozzarella", "ham", "pineapple", "extra cheese"])
