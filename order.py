@@ -1,12 +1,6 @@
-sofia_extra_delivery
-from pizza import Pizza
-
-
 from typing import Iterable
 from pizza import Pizza
 
-
-main
 class Order:
     def __init__(self, order_id, pizzas):
         self.order_id = order_id
@@ -24,6 +18,7 @@ class Order:
     def set_delivery_status(self, delivery_status):
         self.delivery_status = delivery_status
 
+
 class OrderManager:
     def __new__(cls):
         if not hasattr(cls, 'instance'):
@@ -37,17 +32,6 @@ class OrderManager:
         order = Order(order_id, pizzas)
         self.orders.append(order)
         self.next_order_id += 1
-        return orde
-
-sofia_extra_delivery
-    def add_order(self, pizzas):
-
-    def add_order(self, pizzas: Iterable[Pizza]):
-main
-        order_id = self.next_order_id
-        order = Order(order_id, pizzas)
-        self.orders.append(order)
-        self.next_order_id += 1
         return order
 
     def list_orders(self):
@@ -55,6 +39,17 @@ main
         for order in self.orders:
             print(order)
         print()
+
+    def prepare_order(self, order_id):
+        for order in self.orders:
+            if order.order_id == order_id:
+                order.set_status("Preparing")
+                for pizza in order.pizzas:
+                    pizza.prepare()
+                order.set_status("Completed")
+                print(f"Order #{order_id} prepared and completed.")
+                return
+        print(f"Order #{order_id} not found.")
 
     def dispatch_order(self, order_id):
         for order in self.orders:
@@ -69,16 +64,5 @@ main
             if order.order_id == order_id:
                 order.set_delivery_status("Delivered")
                 print(f"Order #{order_id} has been delivered.")
-                return
-        print(f"Order #{order_id} not found.")
-
-    def prepare_order(self, order_id):
-        for order in self.orders:
-            if order.order_id == order_id:
-                order.set_status("Preparing")
-                for pizza in order.pizzas:
-                    pizza.prepare()
-                order.set_status("Completed")
-                print(f"Order #{order_id} prepared and completed.")
                 return
         print(f"Order #{order_id} not found.")
