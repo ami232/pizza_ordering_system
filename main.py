@@ -1,6 +1,8 @@
 from pizza import PizzaFactory, ItalianPizzaFactory, AmericanPizzaFactory
 from order import OrderManager
 
+# Step 1 finished
+
 # Create factories and manager
 factory = PizzaFactory()
 manager = OrderManager()
