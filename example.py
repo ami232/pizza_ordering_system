@@ -2,6 +2,8 @@ from pizza import PizzaFactory
 from order import OrderManager
 from pizza import PizzaFactory, ItalianPizzaFactory, AmericanPizzaFactory
 
+# Comment
+#2nd comment
 factory = PizzaFactory()
 manager = OrderManager()
 
