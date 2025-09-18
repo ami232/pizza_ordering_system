@@ -49,7 +49,12 @@ class PizzaFactory:
     def create_pepperoni(self):
         return Pizza("Pepperoni", ["tomato sauce", "mozzarella", "pepperoni"])
 
+    def create_veggie(self):
+        return Pizza("Veggie", ["tomato sauce", "mozzarella", "vegetables"])
 
+    def create_hawaiian(self):
+        return Pizza("Hawaiian", ["tomato sauce", "mozzarella", "pineapple"])
+    
 # Abstract Factory
 class PizzaFactoryAbstract(ABC):
     def create_custom(self, name, ingredients) -> Pizza:
