@@ -32,3 +32,8 @@ manager.add_order([american_veggie])
 manager.list_orders()
 manager.prepare_order(5)
 manager.dispatch_order(5)
+
+# --- Extra Functionality Tests ---
+manager.cancel_order(2)      # Cancel Order #2
+manager.dispatch_order(1)    # Deliver Order #1
+manager.sales_report()       # Print sales report
