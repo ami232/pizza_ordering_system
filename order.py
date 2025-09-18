@@ -37,8 +37,20 @@ class OrderManager:
         print()
 
     def prepare_order(self, order_id):
-        pass
+        for order in self.orders:
+            if order.order_id == order_id:
+                for pizza in order.pizzas:
+                    pizza.prepare()
+                return order
+        print(f"Order #{order_id} not found.")
+        return None
 
     def dispatch_order(self, order_id):
-        pass
+        for order in self.orders:
+            if order.order_id == order_id:
+                self.orders.remove(order)
+                print(f"Order #{order_id} has been dispatched.")
+                return order
+        print(f"Order #{order_id} not found.")
+        return None
 

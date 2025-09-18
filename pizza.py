@@ -64,6 +64,10 @@ class PizzaFactoryAbstract(ABC):
     def create_pepperoni(self) -> Pizza:
         pass
 
+    @abstractmethod
+    def create_Hawaiian(self) -> Pizza:
+        pass
+
 # Concrete Factories
 class ItalianPizzaFactory(PizzaFactoryAbstract):
 
@@ -72,6 +76,9 @@ class ItalianPizzaFactory(PizzaFactoryAbstract):
 
     def create_pepperoni(self):
         return Pizza("Italian Pepperoni", ["tomato sauce", "mozzarella", "pepperoni"])
+
+    def create_Hawaiian(self):
+        return Pizza("Hawaiian", ["tomato sause", "mozzarella"])
 
 
 class AmericanPizzaFactory(PizzaFactoryAbstract):
@@ -83,3 +90,20 @@ class AmericanPizzaFactory(PizzaFactoryAbstract):
             "American Pepperoni",
             ["tomato sauce", "mozzarella", "pepperoni", "extra cheese"],
         )
+    def create_Hawaiian(self):
+        return Pizza("Hawaiian", ["tomato sause", "mozzarella", "pineapple", "chocolate"])
+
+
+class JapanesePizzaFactory(PizzaFactoryAbstract):
+    def create_margherita(self):
+        return Pizza("Japanese Margherita", ["soy sauce", "mozzarella", "oregano"])
+    
+    def create_pepperoni(self):
+        return Pizza(
+            "Japanese Pepperoni",
+            ["soy sauce", "Tofu", "pepperoni", "extra cheese"],
+        )
+    
+    def create_Hawaiian(self):
+        return Pizza("Hawaiian", ["tomato sause", "Tofu", "pineapple"])
+
