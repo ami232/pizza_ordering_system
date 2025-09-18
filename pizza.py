@@ -108,3 +108,16 @@ class ManuelPizzaFactory(PizzaFactoryAbstract):
 
     def create_bbq(self) -> Pizza:
         return Pizza("Manuel BBQ", ["bbq sauce", "mozzarella", "chicken", "onions"])
+# pizza.py
+class Pizza:
+    def __init__(self, name, ingredients):
+        self.name = name
+        self.ingredients = ingredients
+        self.prepared = False
+
+    def prepare(self):
+        if not self.prepared:
+            print(f"Preparing {self.name} pizza...")
+            print("Ingredients:", ", ".join(self.ingredients))
+            print("Baking in the oven... Done!")
+            self.prepared = True   # <<< IMPORTANT

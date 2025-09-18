@@ -41,3 +41,13 @@ manager.dispatch_order(5)
 manager.cancel_order(2)      # Cancel Order #2
 manager.dispatch_order(1)    # Deliver Order #1
 manager.sales_report()       # Print sales report
+
+# main.py (add at the bottom or create a small demo function)
+from factory import AdriPizzaFactory
+
+if __name__ == "__main__":
+    f = AdriPizzaFactory()
+    bbq = f.create_pizza("bbq_chicken")
+    print("Created:", bbq.name, bbq.ingredients)
+    bbq.prepare()
+    print("Prepared?", bbq.prepared)
