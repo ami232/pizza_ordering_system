@@ -9,7 +9,7 @@ class Pizza:
     def __init__(self, name, ingredients):
         """
         Initializes a Pizza instance.
-
+git checkout yourname_branch
         Parameters:
             name (str): The name of the pizza.
             ingredients (list of str): List of ingredients for the pizza.
@@ -48,6 +48,12 @@ class PizzaFactory:
 
     def create_pepperoni(self):
         return Pizza("Pepperoni", ["tomato sauce", "mozzarella", "pepperoni"])
+    
+    def create_veggie(self):
+        return Pizza("Veggie", ["tomato sauce", "mozzarella", "tomato", "pepper", "onion"])
+    
+    def create_hawaiian(self):
+        return Pizza("Hawaiian", ["tomato sauce", "mozzarella", "ham", "pineapple"])
 
 
 # Abstract Factory
