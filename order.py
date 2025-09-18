@@ -40,7 +40,27 @@ class OrderManager:
         print()
 
     def prepare_order(self, order_id):
-        pass
+        """
+        Prepares all pizzas in the specified order.
+        
+        Parameters:
+            order_id (int): The ID of the order to prepare.
+        """
+        # Find the order with the given ID
+        order = None
+        for o in self.orders:
+            if o.order_id == order_id:
+                order = o
+                break
+        
+        if order is None:
+            print(f"Order #{order_id} not found!")
+            return
+        
+        print(f"Preparing Order #{order_id}...")
+        for pizza in order.pizzas:
+            pizza.prepare()
+        print(f"Order #{order_id} preparation complete!\n")
 
     def dispatch_order(self, order_id):
         pass
