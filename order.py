@@ -40,7 +40,21 @@ class OrderManager:
         print()
 
     def prepare_order(self, order_id):
-        pass
+        for order in self.orders:
+            if order.order_id == order_id:
+                print(f"Preparing Order #{order_id}:")
+                for pizza in order.pizzas:
+                    pizza.prepare()
+                return
+        print(f"Order #{order_id} not found.")
 
     def dispatch_order(self, order_id):
-        pass
+        for order in self.orders:
+            if order.order_id == order_id:
+                if all(pizza.prepared for pizza in order.pizzas):
+                    print(f"Dispatching Order #{order_id}!")
+                    self.orders.remove(order)
+                else:
+                    print(f"Order #{order_id} cannot be dispatched. Not all pizzas are prepared.")
+                return
+        print(f"Order #{order_id} not found.")
