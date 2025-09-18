@@ -21,3 +21,8 @@ american_pizza = american_factory.create_margherita()
 manager.add_order([italian_pizza])
 manager.add_order([american_pizza])
 manager.list_orders()
+
+
+awaiian_pizza = factory.create_hawaiian()
+order = manager.add_order(hawaiian_pizza)   # capture returned Order
+manager.list_orders()

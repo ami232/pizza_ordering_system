@@ -30,8 +30,15 @@ class OrderManager:
         order_id = self.next_order_id
         order = Order(order_id, pizzas)
         self.orders.append(order)
-        self.next_order_id += 1
-        return order
+        # accept a single Pizza or an iterable of pizzas, only for testing the hawaiian pizza creating
+        
+        if not isinstance(pizzas, (list, tuple)):
+            pizzas = [pizzas]
+            order_id = self.next_order_id
+            order = Order(order_id, pizzas)
+            self.orders.append(order)
+            self.next_order_id += 1
+            return order
 
     def list_orders(self):
         print("Current Orders:")
