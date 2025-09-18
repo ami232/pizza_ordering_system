@@ -1,19 +1,13 @@
 from abc import ABC, abstractmethod
-
+from typing import List
 
 class Pizza:
     """
     Represents a pizza with a name, list of ingredients, and preparation status.
     """
 
-    def __init__(self, name, ingredients):
-        """
-        Initializes a Pizza instance.
-
-        Parameters:
-            name (str): The name of the pizza.
-            ingredients (list of str): List of ingredients for the pizza.
-        """
+    def __init__(self, name: str, ingredients: List[str]):
+     
         self.name = name
         self.ingredients = ingredients
         self.prepared = False
@@ -48,6 +42,12 @@ class PizzaFactory:
 
     def create_pepperoni(self):
         return Pizza("Pepperoni", ["tomato sauce", "mozzarella", "pepperoni"])
+    #adding the hawaiian
+    def create_hawaiian(self):
+        return Pizza("Hawaiian", ["tomato sauce", "mozzarella","pinapples"])
+
+    def create_hawaiian(self):
+        return Pizza("Hawaiian", ["tomato sauce", "mozzarella", "ham", "pineapple"])
 
     def create_veggie(self):
         return Pizza("Veggie", ["tomato sauce", "mozzarella", "vegetables"])
