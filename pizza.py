@@ -93,18 +93,19 @@ class AmericanPizzaFactory(PizzaFactoryAbstract):
         return Pizza("American Hawaiian", ["tomato sauce", "mozzarella", "ham", "pineapple", "extra cheese"])
 
 
-class ManuelPizzaFactory(PizzaFactoryAbstract):
+class MiaPizzaFactory(PizzaFactoryAbstract):
     def create_margherita(self) -> Pizza:
-        return Pizza("Manuel Margherita", ["tomato sauce", "mozzarella", "spinach"])
+        return Pizza("Mia Margherita", ["tomato sauce", "mozzarella", "basil", "oregano"])
 
     def create_pepperoni(self) -> Pizza:
-        return Pizza("Manuel Pepperoni", ["tomato sauce", "mozzarella", "pepperoni", "jalapeños"])
+        return Pizza("Mia Pepperoni", ["tomato sauce", "mozzarella", "pepperoni", "jalapenos"])
 
     def create_veggie(self) -> Pizza:
-        return Pizza("Manuel Veggie", ["tomato sauce", "mozzarella", "peppers", "onions", "corn"])
+        return Pizza("Mia Veggie", ["tomato sauce", "mozzarella", "peppers", "onions", "corn"])
 
     def create_hawaiian(self) -> Pizza:
-        return Pizza("Manuel Hawaiian", ["tomato sauce", "mozzarella", "ham", "pineapple", "bacon"])
+        return Pizza("Mia Hawaiian", ["tomato sauce", "mozzarella", "ham", "pineapple", "bacon"])
 
-    def create_bbq(self) -> Pizza:
-        return Pizza("Manuel BBQ", ["bbq sauce", "mozzarella", "chicken", "onions"])
+    def create_bbq(self) -> Pizza:  # New pizza unique to your factory
+        return Pizza("Mia BBQ", ["bbq sauce", "mozzarella", "chicken", "onions"])
+
