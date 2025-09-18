@@ -42,6 +42,9 @@ class PizzaFactory:
 
     def create_pepperoni(self):
         return Pizza("Pepperoni", ["tomato sauce", "mozzarella", "pepperoni"])
+    #adding the hawaiian
+    def create_hawaiian(self):
+        return Pizza("Hawaiian", ["tomato sauce", "mozzarella","pinapples"])
 
     def create_hawaiian(self):
         return Pizza("Hawaiian", ["tomato sauce", "mozzarella", "ham", "pineapple"])

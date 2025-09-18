@@ -1,5 +1,12 @@
+sofia_extra_delivery
 from pizza import Pizza
 
+
+from typing import Iterable
+from pizza import Pizza
+
+
+main
 class Order:
     def __init__(self, order_id, pizzas):
         self.order_id = order_id
@@ -25,7 +32,18 @@ class OrderManager:
             cls.instance.next_order_id = 1
         return cls.instance
 
+    def add_order(self, pizzas: Iterable[Pizza]):
+        order_id = self.next_order_id
+        order = Order(order_id, pizzas)
+        self.orders.append(order)
+        self.next_order_id += 1
+        return orde
+
+sofia_extra_delivery
     def add_order(self, pizzas):
+
+    def add_order(self, pizzas: Iterable[Pizza]):
+main
         order_id = self.next_order_id
         order = Order(order_id, pizzas)
         self.orders.append(order)
