@@ -73,3 +73,7 @@ class OrderManager:
                 print(f"Order #{order_id} has been delivered.")
                 return
         print(f"Order #{order_id} not found.")
+
+        def count_orders(self):
+            """Return total number of orders managed so far."""
+            return len(self.orders)    
