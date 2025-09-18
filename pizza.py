@@ -1,11 +1,12 @@
 from abc import ABC, abstractmethod
-
+from typing import List
 
 class Pizza:
     """
     Represents a pizza with a name, list of ingredients, and preparation status.
     """
 
+<<<<<<< HEAD
     def __init__(self, name, ingredients):
         """
         Initializes a Pizza instance.
@@ -17,14 +18,14 @@ class Pizza:
 
         
 
+=======
+    def __init__(self, name: str, ingredients: List[str]):
+>>>>>>> main
         self.name = name
         self.ingredients = ingredients
         self.prepared = False
 
     def prepare(self):
-        """
-        Prepares the pizza if it has not been prepared yet.
-        """
         if not self.prepared:
             print(f"Preparing {self.name} pizza...")
             print("Ingredients:", ", ".join(self.ingredients))
@@ -37,28 +38,34 @@ class Pizza:
         return f"{self.name} ({', '.join(self.ingredients)}) - {'Prepared' if self.prepared else 'Not Prepared'}"
 
 
-# Factory
+# ------------------ Simple Factory ------------------
 class PizzaFactory:
-    """
-    Factory class responsible for creating Pizza objects based on the specified type.
-    """
-
-    def create_custom(self, name, ingredients):
+    def create_custom(self, name: str, ingredients: List[str]) -> Pizza:
         return Pizza(name, ingredients)
 
-    def create_margherita(self):
+    def create_margherita(self) -> Pizza:
         return Pizza("Margherita", ["tomato sauce", "mozzarella", "basil"])
 
-    def create_pepperoni(self):
+    def create_pepperoni(self) -> Pizza:
         return Pizza("Pepperoni", ["tomato sauce", "mozzarella", "pepperoni"])
+<<<<<<< HEAD
     
     def create_veggie(self):
         return Pizza("Veggie", ["tomato sauce", "mozzarella", "mushrooms", "onions", "basil"])
     
+=======
 
-# Abstract Factory
+    def create_veggie(self) -> Pizza:
+        return Pizza("Veggie", ["tomato sauce", "mozzarella", "peppers", "onions", "olives"])
+>>>>>>> main
+
+    def create_hawaiian(self) -> Pizza:
+        return Pizza("Hawaiian", ["tomato sauce", "mozzarella", "ham", "pineapple"])
+
+
+# ------------------ Abstract Factory ------------------
 class PizzaFactoryAbstract(ABC):
-    def create_custom(self, name, ingredients) -> Pizza:
+    def create_custom(self, name: str, ingredients: List[str]) -> Pizza:
         return Pizza(name, ingredients)
 
     @abstractmethod
@@ -69,23 +76,56 @@ class PizzaFactoryAbstract(ABC):
     def create_pepperoni(self) -> Pizza:
         pass
 
+    @abstractmethod
+    def create_veggie(self) -> Pizza:
+        pass
 
-# Concrete Factories
+    @abstractmethod
+    def create_hawaiian(self) -> Pizza:
+        pass
+
+
+# ------------------ Concrete Factories ------------------
 class ItalianPizzaFactory(PizzaFactoryAbstract):
-
-    def create_margherita(self):
+    def create_margherita(self) -> Pizza:
         return Pizza("Italian Margherita", ["tomato sauce", "mozzarella", "basil"])
 
-    def create_pepperoni(self):
+    def create_pepperoni(self) -> Pizza:
         return Pizza("Italian Pepperoni", ["tomato sauce", "mozzarella", "pepperoni"])
+
+    def create_veggie(self) -> Pizza:
+        return Pizza("Italian Veggie", ["tomato sauce", "mozzarella", "zucchini", "peppers", "onions"])
+
+    def create_hawaiian(self) -> Pizza:
+        return Pizza("Italian Hawaiian", ["tomato sauce", "mozzarella", "ham", "pineapple"])
 
 
 class AmericanPizzaFactory(PizzaFactoryAbstract):
-    def create_margherita(self):
+    def create_margherita(self) -> Pizza:
         return Pizza("American Margherita", ["tomato sauce", "mozzarella", "oregano"])
 
-    def create_pepperoni(self):
-        return Pizza(
-            "American Pepperoni",
-            ["tomato sauce", "mozzarella", "pepperoni", "extra cheese"],
-        )
+    def create_pepperoni(self) -> Pizza:
+        return Pizza("American Pepperoni", ["tomato sauce", "mozzarella", "pepperoni", "extra cheese"])
+
+    def create_veggie(self) -> Pizza:
+        return Pizza("American Veggie", ["tomato sauce", "mozzarella", "mushrooms", "peppers", "onions", "olives"])
+
+    def create_hawaiian(self) -> Pizza:
+        return Pizza("American Hawaiian", ["tomato sauce", "mozzarella", "ham", "pineapple", "extra cheese"])
+
+
+class ManuelPizzaFactory(PizzaFactoryAbstract):
+    def create_margherita(self) -> Pizza:
+        return Pizza("Manuel Margherita", ["tomato sauce", "mozzarella", "spinach"])
+
+    def create_pepperoni(self) -> Pizza:
+        return Pizza("Manuel Pepperoni", ["tomato sauce", "mozzarella", "pepperoni", "jalapeños"])
+
+    def create_veggie(self) -> Pizza:
+        return Pizza("Manuel Veggie", ["tomato sauce", "mozzarella", "peppers", "onions", "corn"])
+
+    def create_hawaiian(self) -> Pizza:
+        return Pizza("Manuel Hawaiian", ["tomato sauce", "mozzarella", "ham", "pineapple", "bacon"])
+
+    def create_bbq(self) -> Pizza:
+        return Pizza("Manuel BBQ", ["bbq sauce", "mozzarella", "chicken", "onions"])
