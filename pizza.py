@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+from typing import List
 
 
 class Pizza:
@@ -7,14 +8,8 @@ class Pizza:
     and a preparation status.
     """
 
-    def __init__(self, name, ingredients):
-        """
-        Initializes a Pizza instance.
-
-        Parameters:
-            name (str): The name of the pizza.
-            ingredients (list of str): List of ingredients for the pizza.
-        """
+    def __init__(self, name: str, ingredients: List[str]):
+     
         self.name = name
         self.ingredients = ingredients
         self.prepared = False
