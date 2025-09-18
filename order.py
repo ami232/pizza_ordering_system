@@ -44,3 +44,17 @@ class OrderManager:
 
     def dispatch_order(self, order_id):
         pass
+# order.py
+from pizza import Pizza
+
+class Order:
+    def __init__(self, order_id, pizza: Pizza):
+        self.order_id = order_id
+        self.pizza = pizza
+
+    def prepare_order(self):
+        if self.pizza.prepared:
+            print(f"Order {self.order_id} is already prepared.")
+            return False
+        self.pizza.prepare()
+        return True

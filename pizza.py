@@ -7,7 +7,6 @@ class Pizza:
     Represents a pizza with a name, list of ingredients, and preparation status.
     """
 
-<<<<<<< HEAD
     def __init__(self, name, ingredients):
         """
         Initializes a Pizza instance.
@@ -16,10 +15,6 @@ git checkout yourname_branch
             name (str): The name of the pizza.
             ingredients (list of str): List of ingredients for the pizza.
         """
-=======
-    def __init__(self, name: str, ingredients: List[str]):
-     
->>>>>>> main
         self.name = name
         self.ingredients = ingredients
         self.prepared = False
@@ -95,3 +90,16 @@ class AmericanPizzaFactory(PizzaFactoryAbstract):
             "American Pepperoni",
             ["tomato sauce", "mozzarella", "pepperoni", "extra cheese"],
         )
+# pizza.py
+class Pizza:
+    def __init__(self, name, ingredients):
+        self.name = name
+        self.ingredients = ingredients
+        self.prepared = False
+
+    def prepare(self):
+        if not self.prepared:
+            print(f"Preparing {self.name} pizza...")
+            print("Ingredients:", ", ".join(self.ingredients))
+            print("Baking in the oven... Done!")
+            self.prepared = True   # <<< IMPORTANT
