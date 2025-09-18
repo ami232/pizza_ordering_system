@@ -25,9 +25,13 @@ american_factory = AmericanPizzaFactory()
 
 italian_hawaiian = italian_factory.create_hawaiian()
 american_veggie = american_factory.create_veggie()
+italian_pizza = italian_factory.create_margherita()
+american_pizza = american_factory.create_margherita()
 
 manager.add_order([italian_hawaiian])
 manager.add_order([american_veggie])
+manager.add_order([italian_pizza])
+manager.add_order([american_pizza])
 
 manager.list_orders()
 manager.prepare_order(5)
