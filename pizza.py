@@ -84,3 +84,13 @@ class AmericanPizzaFactory(PizzaFactoryAbstract):
             "American Pepperoni",
             ["tomato sauce", "mozzarella", "pepperoni", "extra cheese"],
         )
+
+class QamarPizzaFactory(PizzaFactoryAbstract):
+    def create_margherita(self) -> Pizza:
+        return Pizza("Qamar Margherita", ["tomato sauce", "mozzarella", "basil", "olive oil"])
+
+    def create_pepperoni(self) -> Pizza:
+        return Pizza("Qamar Pepperoni", ["tomato sauce", "mozzarella", "pepperoni", "chilli flakes"])
+
+    def create_bbq_chicken(self) -> Pizza:
+        return Pizza("Qamar BBQ Chicken", ["bbq sauce", "mozzarella", "grilled chicken", "onions", "cilantro"])
