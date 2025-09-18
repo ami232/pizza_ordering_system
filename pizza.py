@@ -1,7 +1,6 @@
 from abc import ABC, abstractmethod
 from typing import List
 
-
 class Pizza:
     """
     Represents a pizza with a name, list of ingredients, and preparation status.
@@ -46,6 +45,9 @@ class PizzaFactory:
     #adding the hawaiian
     def create_hawaiian(self):
         return Pizza("Hawaiian", ["tomato sauce", "mozzarella","pinapples"])
+
+    def create_hawaiian(self):
+        return Pizza("Hawaiian", ["tomato sauce", "mozzarella", "ham", "pineapple"])
 
 
 # Abstract Factory
