@@ -20,7 +20,8 @@ class OrderManager:
         return cls.instance
 
     def add_order(self, pizzas):
-        order = Order(self.next_order_id, pizzas)
+        order_id = self.next_order_id
+        order = Order(order_id, pizzas)
         self.orders.append(order)
         self.next_order_id += 1
         return order

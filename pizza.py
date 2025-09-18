@@ -1,5 +1,4 @@
 from abc import ABC, abstractmethod
-from order import OrderManager
 
 
 class Pizza:
@@ -7,14 +6,8 @@ class Pizza:
     Represents a pizza with a name, list of ingredients, and preparation status.
     """
 
-    def __init__(self, name, ingredients):
-        """
-        Initializes a Pizza instance.
-
-        Parameters:
-            name (str): The name of the pizza.
-            ingredients (list of str): List of ingredients for the pizza.
-        """
+    def __init__(self, name: str, ingredients: List[str]):
+     
         self.name = name
         self.ingredients = ingredients
         self.prepared = False
