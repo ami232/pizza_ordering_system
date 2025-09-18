@@ -1,5 +1,6 @@
-from pizza import PizzaFactory, ItalianPizzaFactory, AmericanPizzaFactory
+from pizza import PizzaFactory
 from order import OrderManager
+from pizza import PizzaFactory, ItalianPizzaFactory, AmericanPizzaFactory
 
 factory = PizzaFactory()
 manager = OrderManager()

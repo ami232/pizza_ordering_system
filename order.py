@@ -1,3 +1,7 @@
+from typing import Iterable
+from pizza import Pizza
+
+
 class Order:
     def __init__(self, order_id, pizzas):
         self.order_id = order_id
@@ -22,7 +26,7 @@ class OrderManager:
             cls._instance.next_order_id = 1
         return cls._instance
 
-    def add_order(self, pizzas):
+    def add_order(self, pizzas: Iterable[Pizza]):
         order_id = self.next_order_id
 
         if not isinstance(pizzas, list):
