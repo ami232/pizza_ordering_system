@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+from typing import List
 
 
 class Pizza:
@@ -6,6 +7,7 @@ class Pizza:
     Represents a pizza with a name, list of ingredients, and preparation status.
     """
 
+<<<<<<< HEAD
     def __init__(self, name, ingredients):
         """
         Initializes a Pizza instance.
@@ -14,6 +16,10 @@ git checkout yourname_branch
             name (str): The name of the pizza.
             ingredients (list of str): List of ingredients for the pizza.
         """
+=======
+    def __init__(self, name: str, ingredients: List[str]):
+     
+>>>>>>> main
         self.name = name
         self.ingredients = ingredients
         self.prepared = False
