@@ -6,9 +6,16 @@ manager = OrderManager()
 
 # Factory Method
 pizza = factory.create_margherita()
+hawaiian = factory.create_hawaiian()  # Step 2
 manager.add_order([pizza])
+manager.add_order([hawaiian])         # add Hawaiian as a separate order
+
+# Show initial state
 manager.list_orders()
+
+# Step 3: prepare the first order and show that it changed to Prepared
 manager.prepare_order(1)
+manager.list_orders()
 
 # Abstract Factory
 italian_factory = ItalianPizzaFactory()
