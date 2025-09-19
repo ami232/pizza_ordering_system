@@ -40,6 +40,10 @@ class PizzaFactory:
 
     def create_hawaiian(self) -> Pizza:
         return Pizza("Hawaiian", ["tomato sauce", "mozzarella", "ham", "pineapple"])
+    
+    def create_bbq_chicken(self):
+        return Pizza("BBQ Chicken", ["tomato sauce", "mozzarella", "chicken", "bbq sauce", "red onion"])
+
 
 
 # ------------------ Abstract Factory ------------------
