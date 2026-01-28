@@ -6,7 +6,21 @@ class Pizza:
     Represents a pizza with a name, list of ingredients, and preparation status.
     """
 
+<<<<<<< HEAD
+    def __init__(self, name, ingredients):
+        """
+        Initializes a Pizza instance.
+
+        Parameters:
+            name (str): The name of the pizza.
+            ingredients (list of str): List of ingredients for the pizza.
+        """
+
+        
+
+=======
     def __init__(self, name: str, ingredients: List[str]):
+>>>>>>> main
         self.name = name
         self.ingredients = ingredients
         self.prepared = False
@@ -34,9 +48,16 @@ class PizzaFactory:
 
     def create_pepperoni(self) -> Pizza:
         return Pizza("Pepperoni", ["tomato sauce", "mozzarella", "pepperoni"])
+<<<<<<< HEAD
+    
+    def create_veggie(self):
+        return Pizza("Veggie", ["tomato sauce", "mozzarella", "mushrooms", "onions", "basil"])
+    
+=======
 
     def create_veggie(self) -> Pizza:
         return Pizza("Veggie", ["tomato sauce", "mozzarella", "peppers", "onions", "olives"])
+>>>>>>> main
 
     def create_hawaiian(self) -> Pizza:
         return Pizza("Hawaiian", ["tomato sauce", "mozzarella", "ham", "pineapple"])
